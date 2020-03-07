@@ -29,6 +29,10 @@ public class ArrowController : MonoBehaviour {
         float r2 = 1.0f; // 遊戲角色的圓半徑
 
         if (d < r1 + r2) {
+            // 將衝突訊息傳遞給導演程式
+            GameObject director = GameObject.Find("GameDirector");
+            director.GetComponent<GameDirector>().DecreaseHp();
+
             // 發生衝突時就捨棄箭頭
             Destroy(gameObject);
         }
